@@ -57,6 +57,12 @@
                 android:enabled="false"
                 android:text="stop and exit" />
         </LinearLayout>
+        <TextView
+            android:id="@+id/ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="not network"
+            android:gravity="center"/>
 
 
     </LinearLayout>

@@ -24,7 +24,7 @@ func StartServer(bind string, remote string)  {
 }
 
 func StopServer()  {
-	if err := srv.Close() ; err != nil {
+	if err := srv.Shutdown(nil) ; err != nil {
 		log.Println(err)
 	}
 }

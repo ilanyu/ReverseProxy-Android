@@ -41,7 +41,6 @@ proguard/
 captures/
 
 # IntelliJ
-*.iml
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
@@ -69,7 +68,6 @@ freeline_project_description.json
 # User-specific stuff:
 .idea/**/workspace.xml
 .idea/**/tasks.xml
-.idea/dictionaries
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -96,8 +94,6 @@ cmake-build-release/
 
 ## Plugin-specific files:
 
-# IntelliJ
-out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
