@@ -1,13 +1,11 @@
 package Mobile
 
 import (
-	"log"
 	"net/http"
-	"bufio"
-	"os"
-	"strings"
+	"log"
 )
 
+var cmd Cmd
 var srv http.Server
 
 func StartServer(bind string, remote string)  {
@@ -15,7 +13,6 @@ func StartServer(bind string, remote string)  {
 	h := &handle{reverseProxy: remote}
 	srv.Addr = bind
 	srv.Handler = h
-
 	go func() {
 		if err := srv.ListenAndServe(); err != nil {
 			log.Fatalln("ListenAndServe: ", err)
@@ -30,18 +27,6 @@ func StopServer()  {
 }
 
 func main() {
-	cmd := parseCmd()
+	cmd = parseCmd()
 	StartServer(cmd.bind, cmd.remote)
-	reader := bufio.NewReader(os.Stdin)
-	for {
-		str, err := reader.ReadString('\n')
-		if err != nil {
-			log.Println(err)
-		}
-		if strings.TrimSpace(str) == "stop" {
-			log.Println("will stop server")
-			StopServer()
-			return
-		}
-	}
 }
